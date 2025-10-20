@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Fischer - Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            margin: 0 auto;
+            padding: 60px 20%;
+            max-width: 1200px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .nav-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .profile-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 240px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .profile-text h2 {
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .profile-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin: 40px 0 25px 0;
+            font-weight: 600;
+            color: #222;
+        }
+        
+        .item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-image {
+            width: 150px;
+            height: 120px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .item-content {
+            flex: 1;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .item-title-group {
+            flex: 1;
+        }
+        
+        .item-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #222;
+        }
+        
+        .item-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .item-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        
+        .details-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 4px 8px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+        
+        .details-link:hover {
+            background-color: #f0f0f0;
+            text-decoration: underline;
+        }
+        
+        .item-description {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .item-description ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .item-description li {
+            margin-bottom: 5px;
+        }
+        
+        .education-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .education-item {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .education-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        
+        .education-school {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .education-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        .education-description {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .skills-section {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            margin-top: 20px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        
+        .skill-category p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .contact-links a {
+            color: #0066cc;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        .contact-links a:hover {
+            background-color: #f0f0f0;
+            text-decoration: underline;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 10%;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .item {
+                flex-direction: column;
+            }
+            
+            .item-image {
+                width: 100%;
+                height: 150px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .details-link {
+                margin-left: 0;
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jeremy Fischer</h1>
+        <div class="subtitle">Software Developer & Visual Computing Engineer</div>
+        
+        <div class="nav-links">
+            <a href="#about">About</a> - 
+            <a href="#experience">Experience</a> - 
+            <a href="#projects">Projects</a> - 
+            <a href="#education">Education</a> - 
+            <a href="#skills">Skills</a> - 
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <section id="about">
+            <div class="profile-section">
+                <div class="profile-image">[Your Photo Here]</div>
+                <div class="profile-text">
+                    <h2>About</h2>
+                    <p>Keep the about ... for me to write</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="item">
+                <div class="item-image">[UC Berkeley Logo]</div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title-group">
+                            <div class="item-title">Research Assistant</div>
+                            <div class="item-subtitle">University of California, Berkeley</div>
+                            <div class="item-date">March 2025 - Present</div>
+                        </div>
+                        <a href="research-assistant-details.html" class="details-link">Details →</a>
+                    </div>
+                    <div class="item-description">
+                        Developing a Unity-based mixed reality stroke rehabilitation app under Eddie Kim and Professor Seshia's research group, focusing on innovative therapeutic applications of immersive technology.
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">[AGCO Logo]</div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title-group">
+                            <div class="item-title">Embedded Software Engineer</div>
+                            <div class="item-subtitle">AGCO | Remote/Jackson MN</div>
+                            <div class="item-date">January 2023 – August 2024</div>
+                        </div>
+                        <a href="agco-engineer-details.html" class="details-link">Details →</a>
+                    </div>
+                    <div class="item-description">
+                        Applied design principles in C++ to create extendable, maintainable, and testable code for complex tractor embedded systems.
+                        <ul>
+                            <li>Reliably completed 2-3 user stories per sprint, contributing to team-wide 90% completion rate of committed objectives in Agile projects</li>
+                            <li>Implemented solutions effectively balancing run-time and memory constraints, optimizing performance and resource efficiency</li>
+                            <li>Collaborated cross-functionally with engineers, QA, 3rd party vendors, product owners, and scrum masters</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">[Thomson Reuters Logo]</div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title-group">
+                            <div class="item-title">Software Engineer Contractor</div>
+                            <div class="item-subtitle">Thomson Reuters | Remote</div>
+                            <div class="item-date">November 2021 – August 2022</div>
+                        </div>
+                        <a href="thomson-reuters-details.html" class="details-link">Details →</a>
+                    </div>
+                    <div class="item-description">
+                        Developed and released profit-generating web development features in Java while collaborating with senior developers.
+                        <ul>
+                            <li>Developed & released 1 profit-generating web development feature in Java</li>
+                            <li>Collaborated with senior developers to solve 1-5 bugs weekly in an effective & timely manner</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Research & Project Experience</h2>
+            
+            <div class="item">
+                <div class="item-image">[Game Screenshot]</div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title-group">
+                            <div class="item-title">Indie Game Developer</div>
+                            <div class="item-subtitle">Self-Employed | Steam Page</div>
+                            <div class="item-date">January 2023 - Present</div>
+                        </div>
+                        <a href="indie-games-details.html" class="details-link">Details →</a>
+                    </div>
+                    <div class="item-description">
+                        Coordinated and managed a diverse team of 20+ writers, voice actors, animators, software developers, and contractors across multiple projects.
+                        <ul>
+                            <li>Achieved 100,000+ downloads across five games and millions of views from YouTubers, including Markiplier</li>
+                            <li>Successfully brought multiple indie games to fruition with high engagement and community response</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">[Simulation Screenshot]</div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title-group">
+                            <div class="item-title">Medical Evacuation Wargame</div>
+                            <div class="item-subtitle">UC Berkeley | Stanford | US Army Collaboration</div>
+                            <div class="item-date">Fall 2024 - May 2025</div>
+                        </div>
+                        <a href="medical-wargame-details.html" class="details-link">Details →</a>
+                    </div>
+                    <div class="item-description">
+                        Leading a team of 2 developing a Unity 3D simulation for medical evacuation scenarios to enhance military training.
+                        <ul>
+                            <li>Creating an adversarial AI using reinforcement learning and neural networks to simulate realistic challenges</li>
+                            <li>Collaborating with Stanford, the US Army, and UC Berkeley on advanced simulation technology</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-title">Master of Engineering, Computer Science</div>
+                    <div class="education-subtitle">Visual Computing and Graphics</div>
+                    <div class="education-school">University of California, Berkeley</div>
+                    <div class="education-date">May 2025</div>
+                    <div class="education-description">
+                        GPA: 3.9<br>
+                        Courses: Machine Learning, Data Science, Computer Vision, Parallel Computing, Graphics
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title">Bachelor of Science in Computer Information Technology</div>
+                    <div class="education-subtitle">Economics Minor</div>
+                    <div class="education-school">Minnesota State University, Mankato</div>
+                    <div class="education-date">May 2023</div>
+                    <div class="education-description">
+                        GPA: 4.0, Honors Program<br>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-section">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <p>C++, C#, Python, SQL, Java, JavaScript, R</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Frameworks</h3>
+                        <p>PyTorch, Unity, Jupyter Notebook, Pandas, Scikit-learn, Selenium, React, Node.js, MATLAB, Simulink, Docker, Git (GitHub, SVN), OpenGL</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Specializations</h3>
+                        <p>Computer Vision, Linux, HTML & CSS, CAN Communication, Jenkins, Postman, Agile, CI/CD</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Information</h2>
+            <div class="contact-links">
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://linkedin.com/in/Jeremy-Fischer">LinkedIn</a>
+                <a href="https://github.com/jeremy-fischer">GitHub</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
