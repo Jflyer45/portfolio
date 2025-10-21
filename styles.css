@@ -156,6 +156,12 @@ h2 {
     opacity: 0.8;
 }
 
+.item-spacer {
+    width: 150px;
+    height: 260px;
+    flex-shrink: 0;
+}
+
 .item-content {
     flex: 1;
 }
@@ -644,6 +650,10 @@ h2 {
     
     .item-logo, .item-hook {
         width: 120px;
+    }
+    
+    .item-spacer {
+        display: none;
     }
     
     .item-header {
