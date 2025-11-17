@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Template - How to Use</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include the reusable carousel CSS -->
+    <link rel="stylesheet" href="carousel.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reusable Carousel Examples</h1>
+        
+        <!-- EXAMPLE 1: Basic Carousel -->
+        <section>
+            <h2>Basic Carousel (Auto-initialized)</h2>
+            <div class="carousel-container" data-carousel="example1" data-auto-advance="true" data-auto-advance-time="4000">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide active">
+                            <img src="images/slide1.jpg" alt="Slide 1">
+                            <div class="caption">Caption for slide 1</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="placeholder">[Placeholder Slide 2]</div>
+                            <div class="caption">Caption for slide 2</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/slide3.jpg" alt="Slide 3">
+                            <div class="caption">Caption for slide 3</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-btn carousel-btn-prev">
+                        <span>&#8249;</span>
+                    </button>
+                    <button class="carousel-btn carousel-btn-next">
+                        <span>&#8250;</span>
+                    </button>
+                </div>
+                
+                <!-- Slide indicators -->
+                <div class="carousel-indicators">
+                    <button class="indicator active"></button>
+                    <button class="indicator"></button>
+                    <button class="indicator"></button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- EXAMPLE 2: Small Carousel without captions -->
+        <section>
+            <h2>Small Carousel (No Auto-advance)</h2>
+            <div class="carousel-container carousel-small carousel-no-captions" data-carousel="example2" data-auto-advance="false">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide active">
+                            <div class="placeholder">[Small Slide 1]</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="placeholder">[Small Slide 2]</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="placeholder">[Small Slide 3]</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="placeholder">[Small Slide 4]</div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn carousel-btn-prev">
+                        <span>&#8249;</span>
+                    </button>
+                    <button class="carousel-btn carousel-btn-next">
+                        <span>&#8250;</span>
+                    </button>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <button class="indicator active"></button>
+                    <button class="indicator"></button>
+                    <button class="indicator"></button>
+                    <button class="indicator"></button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- EXAMPLE 3: Manual Initialization -->
+        <section>
+            <h2>Manual Initialization</h2>
+            <div class="carousel-container carousel-large" id="manual-carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide active">
+                            <div class="placeholder">[Large Manual Slide 1]</div>
+                            <div class="caption">This carousel is initialized manually via JavaScript</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="placeholder">[Large Manual Slide 2]</div>
+                            <div class="caption">You have full control over options</div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn carousel-btn-prev">
+                        <span>&#8249;</span>
+                    </button>
+                    <button class="carousel-btn carousel-btn-next">
+                        <span>&#8250;</span>
+                    </button>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <button class="indicator active"></button>
+                    <button class="indicator"></button>
+                </div>
+            </div>
+            
+            <div style="margin-top: 1rem;">
+                <button onclick="manualCarousel.prev()">Previous</button>
+                <button onclick="manualCarousel.next()">Next</button>
+                <button onclick="manualCarousel.goTo(0)">Go to First</button>
+                <button onclick="manualCarousel.goTo(1)">Go to Last</button>
+            </div>
+        </section>
+        
+        <!-- Documentation -->
+        <section style="margin-top: 3rem;">
+            <h2>How to Use</h2>
+            
+            <h3>1. Include Files</h3>
+            <pre><code>&lt;link rel="stylesheet" href="carousel.css"&gt;
+&lt;script src="carousel.js"&gt;&lt;/script&gt;</code></pre>
+            
+            <h3>2. Auto-initialization (Recommended)</h3>
+            <pre><code>&lt;div class="carousel-container" data-carousel="my-carousel" data-auto-advance="true"&gt;
+    &lt;div class="carousel-wrapper"&gt;
+        &lt;div class="carousel-slides"&gt;
+            &lt;div class="carousel-slide active"&gt;
+                &lt;img src="image1.jpg" alt="Image 1"&gt;
+                &lt;div class="caption"&gt;Caption text&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- More slides... --&gt;
+        &lt;/div&gt;
+        &lt;button class="carousel-btn carousel-btn-prev"&gt;&lt;span&gt;&#8249;&lt;/span&gt;&lt;/button&gt;
+        &lt;button class="carousel-btn carousel-btn-next"&gt;&lt;span&gt;&#8250;&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel-indicators"&gt;
+        &lt;button class="indicator active"&gt;&lt;/button&gt;
+        &lt;!-- More indicators... --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            
+            <h3>3. Manual Initialization</h3>
+            <pre><code>const carousel = new Carousel('#my-carousel', {
+    autoAdvance: true,
+    autoAdvanceTime: 5000,
+    enableKeyboard: true,
+    enableTouch: true,
+    loop: true,
+    startSlide: 0
+});
+
+// Control the carousel
+carousel.next();
+carousel.prev();
+carousel.goTo(2);</code></pre>
+            
+            <h3>4. Available CSS Classes</h3>
+            <ul>
+                <li><code>.carousel-small</code> - Smaller height carousel</li>
+                <li><code>.carousel-large</code> - Larger height carousel</li>
+                <li><code>.carousel-wide</code> - Full width carousel</li>
+                <li><code>.carousel-auto-height</code> - Auto-adjusting height</li>
+                <li><code>.carousel-no-captions</code> - Hide captions</li>
+            </ul>
+            
+            <h3>5. Data Attributes for Auto-initialization</h3>
+            <ul>
+                <li><code>data-carousel="unique-id"</code> - Required for auto-init</li>
+                <li><code>data-auto-advance="true/false"</code> - Enable/disable auto-advance</li>
+                <li><code>data-auto-advance-time="5000"</code> - Time between slides (ms)</li>
+                <li><code>data-loop="true/false"</code> - Enable/disable looping</li>
+                <li><code>data-start-slide="2"</code> - Starting slide index</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Include the reusable carousel JavaScript -->
+    <script src="carousel.js"></script>
+    
+    <!-- Manual initialization example -->
+    <script>
+        // Example of manual initialization with custom options
+        let manualCarousel;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            manualCarousel = new Carousel('#manual-carousel', {
+                autoAdvance: false,
+                enableKeyboard: false,  // Disable keyboard for this example
+                autoAdvanceTime: 8000
+            });
+        });
+    </script>
+</body>
+</html>
