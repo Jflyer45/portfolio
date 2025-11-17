@@ -23,16 +23,19 @@
     min-width: 100%;
     position: relative;
     display: none;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .carousel-slide.active {
-    display: block;
+    display: flex; /* Use flex to properly center content */
 }
 
 .carousel-slide .placeholder {
     width: 100%;
-    height: 600px; /* Increased from 400px for 1920x1080 content */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    max-height: 800px;
+    min-height: 400px;
+    background: transparent; /* No background for image containers */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,12 +45,19 @@
     border-radius: 8px;
 }
 
+/* Only show gradient background for actual text placeholders (no images) */
+.carousel-slide .placeholder:not(:has(img)) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 600px;
+}
+
 .carousel-slide img {
     width: 100%;
     max-height: 800px; /* Max height instead of fixed */
     height: auto; /* Auto height to preserve aspect ratio */
     object-fit: contain; /* Contain to show full image without cropping */
     border-radius: 8px;
+    display: block; /* Remove any inline spacing */
 }
 
 /* Video support for MP4 files */
