@@ -116,12 +116,27 @@ class Carousel {
     
     showSlide(index) {
         // Hide all slides and remove active from indicators
-        this.slides.forEach(slide => slide.classList.remove('active'));
+        this.slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            // Pause videos when not active
+            const video = slide.querySelector('video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
         this.indicators.forEach(indicator => indicator.classList.remove('active'));
         
         // Show current slide and activate indicator
         if (this.slides[index]) {
             this.slides[index].classList.add('active');
+            // Auto-play videos when slide becomes active
+            const video = this.slides[index].querySelector('video');
+            if (video) {
+                video.play().catch(e => {
+                    console.log('Video autoplay prevented:', e);
+                });
+            }
         }
         
         if (this.indicators[index]) {

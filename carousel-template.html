@@ -13,23 +13,26 @@
     <div class="container">
         <h1>Reusable Carousel Examples</h1>
         
-        <!-- EXAMPLE 1: Basic Carousel -->
+        <!-- EXAMPLE 1: Basic Carousel with Video Support -->
         <section>
-            <h2>Basic Carousel (Auto-initialized)</h2>
+            <h2>Basic Carousel with Video & Images (Auto-initialized)</h2>
             <div class="carousel-container" data-carousel="example1" data-auto-advance="true" data-auto-advance-time="4000">
                 <div class="carousel-wrapper">
                     <div class="carousel-slides">
                         <div class="carousel-slide active">
+                            <video controls muted autoplay loop>
+                                <source src="videos/demo-video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="caption">MP4 video demonstration of the project in action</div>
+                        </div>
+                        <div class="carousel-slide">
                             <img src="images/slide1.jpg" alt="Slide 1">
-                            <div class="caption">Caption for slide 1</div>
+                            <div class="caption">High resolution 1920x1080 image</div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="placeholder">[Placeholder Slide 2]</div>
-                            <div class="caption">Caption for slide 2</div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/slide3.jpg" alt="Slide 3">
-                            <div class="caption">Caption for slide 3</div>
+                            <div class="placeholder">[Placeholder Slide 3]</div>
+                            <div class="caption">Placeholder for additional content</div>
                         </div>
                     </div>
                     
