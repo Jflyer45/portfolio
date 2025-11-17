@@ -162,7 +162,7 @@ h2 {
 
 .item-header-left {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
     flex: 1;
 }
@@ -184,7 +184,7 @@ h2 {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 5px;
+    padding: 8px;
 }
 
 .item-title-group {
