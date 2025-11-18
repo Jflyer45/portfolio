@@ -74,19 +74,19 @@
         <div class="content-section">
             <h2 class="section-title">Project Overview</h2>
             <div class="text-content">
-                <p>The Medical Evacuation Wargame Initiative started as my Berkeley M.Eng. capstone project in collaboration with UC Berkeley, Stanford University, and the US Army. The simulation is used in the Medical Evacuation Doctrine Course, where all students collaborate to develop an evacuation plan based on scenario details, then 5+ students execute the plan using laptops to coordinate medical platforms like helicopters, ground vehicles, and ships to efficiently evacuate casualties to medical facilities over 4 hours of gameplay. Instructors monitor the scenario in real-time and can inject challenges like enemy artillery, adversarial AI, or mass casualty events.</p>
+                <p>The Medical Evacuation Wargame Initiative started as my Berkeley M.Eng. capstone project in collaboration with UC Berkeley, Stanford University, and the US Army. The simulation is used in the Medical Evacuation Doctrine Course, where all students collaborate to develop an evacuation plan based on scenario details, then 5+ students execute the plan using laptops to coordinate medical platforms including helicopters, ground vehicles, and ships to efficiently evacuate casualties to medical facilities over 4 hours of gameplay. Instructors monitor the scenario in real-time and can inject challenges like enemy artillery, adversarial AI, or mass casualty events.</p>
                 
                 <p>Before this system, students in the Medical Evacuation Doctrine Course could only plan scenarios on paper and roleplay through them. Now the entire class can work together to create a strategy, then watch as their plan succeeds or fails in real-time as it's executed. The system logs all platforms and patient outcomes, providing detailed statistics at the end of each game that instructors use to give targeted feedback. Currently deployed at Fort Rucker, the wargame combines realistic platform capabilities, doctrinal evacuation policies, and dynamic challenges to create training scenarios that mirror actual operational complexity, preparing students for real-world situations.</p>
 
-                <p>As lead developer and project manager, I handled the technical implementation, system architecture, and coordination between developers and U.S Army stakeholders. I managed the development timeline, integrated feedback from military stakeholders, and worked closely with peer collaborators to build out features. I am the current sole maintainer of the project.</p>
+                <p>As lead developer and project manager, I handled the technical implementation, system architecture, and coordination between developers and U.S Army stakeholders. I managed the development timeline, integrated feedback from project stakeholders, and worked closely with peer collaborators to build out features. I am the current sole maintainer of the project.</p>
 
                 <h3>Key Features</h3>
                 <ul>
-                    <li>Diverse evacuation platforms (helicopters, ambulances, medical ships) with realistic capabilities and constraints</li>
-                    <li>Adversarial AI trained with reinforcement learning that places ground obstacles and air defense zones to challenge players</li>
-                    <li>Real-world policies like the one-hour evacuation standard for urgent patients to reinforced learned course objectives</li>
-                    <li>Instructor controls for managing difficulty through casualty flow, supplemental medical platforms, and artillery strikes</li>
-                    <li>Highly accurate map scaling, terrain modeling, road placement, time conversion, and vehicle speeds that respect real life constraints and student planning. If they calculate a route will take 15 minutes, the simulation accurately reflects that timing</li>
+                    <li>Diverse evacuation platforms (helicopters, ambulances, medical ships) with realistic capabilities and constraints.</li>
+                    <li>Adversarial AI trained with reinforcement learning that places ground obstacles and air defense zones to challenge players.</li>
+                    <li>Real-world policies like the one-hour evacuation standard for urgent patients to reinforced learned course objectives.</li>
+                    <li>Instructor controls for managing difficulty through casualty flow, supplemental medical platforms, and artillery strikes.</li>
+                    <li>Highly accurate map scaling, terrain modeling, road placement, time conversion, and vehicle speeds that respect real life constraints and student planning. If they calculate a route will take 15 minutes, the simulation accurately reflects that timing.</li>
                 </ul>
 
                 <h3>Future Work</h3>
@@ -110,7 +110,7 @@
                     <div class="caption">Award Commencement</div>
                 </div>
                 <div class="text-content">
-                    <p>The project was a smashing success, receiving high praise and recognition from both the Medical Evacuation Doctrine Course Staff and Berkeley. I was awarded the Patriotic Public Service Lapel Pin for my contributions.</p>
+                    <p>The project was a smashing success, receiving high praise and recognition from both the Medical Evacuation Doctrine Course Staff and UC Berkeley faculty. I was awarded the Patriotic Public Service Lapel Pin for my past and ongoing contributions and received multiple grants to continue development. We are publishing multiple research papers based on the project, with a paper under Journal of Defense Modeling and Simulation under review.</p>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">5+</span>
-                    <div class="stat-label">Medical course playthroughs</div>
+                    <div class="stat-label">Medical course cohort playthroughs</div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">100%</span>
@@ -159,11 +159,31 @@
                 
                 <h3>High Fidelity Terrain Modeling</h3>
                 <p>
-                    An important aspect of the simulation is accurate representation of terrain and road networks. Before students even play the wargame, they plan their evacuation based on a scenario brief. They must make considerations of where to place their medical platforms and treatment facilities based on road networks. They might ask themselves, "Will my ground vehicles that move 60 mph be able to meet the one-hour evacuation standard for urgent patients with our proposed treatment site placement?" or "If the enemy blocks or destroy this road, will we be able reroute"</p>
+                    An important aspect of the simulation is accurate representation of terrain and road networks. Before students even play the wargame, they plan their evacuation based on a scenario brief. They must make considerations of where to place their medical platforms and treatment facilities based on road networks. They might ask themselves, "Will my ground vehicles that move 60 mph be able to meet the one-hour evacuation standard for urgent patients with our proposed treatment site placement?" or "If the enemy blocks or destroys this road, will we be able to reroute?"</p>
 
                 <p>
                     To meet this requirement, I used <a href="https://terraining.ateliernonta.com/">real life height data</a> that was imported and used in terrain tooling to provide accurate scaling and terrain features. The height of the terrain was exaggerated to better visualize elevation changes, as at the scale of hundreds of square kilometers, <a href="https://www.youtube.com/watch?v=C69xx2bM8IA">small elevation changes are almost impossible to see</a>!
-                    Road network data was sampled from OpenStreetMap into splines, providing accurate routing information for the simulation.
+                </p>
+
+                <p>
+                    For road placement, I sampled latitude/longitude coordinates from OpenStreetMap and converted them to Unity world space using a flat Earth approximation. The conversion accounts for latitude-dependent scaling of longitude:
+                </p>
+
+                <pre><code>public Vector2 ConvertPositionToLatLong(Vector3 pos) {
+    float dx = (pos.x - refPoint.pos.x) / unitToKilometer;
+    float dz = (pos.z - refPoint.pos.z) / unitToKilometer;
+    
+    float latKm = 111.32f;
+    float lonKm = 111.32f * Mathf.Cos(refPoint.lat * Mathf.Deg2Rad);
+    
+    return new Vector2(
+        refPoint.lat + (dz / latKm),
+        refPoint.lon + (dx / lonKm)
+    );
+}</code></pre>
+
+                <p>
+                    Each sampled lat/long coordinate gets inserted into a spline node, and a custom mesh is generated along the spline to create the roads. This ensures in-game roads match real-world routes with accurate lengths and positioning.
                 </p>
                 
                 <!-- DOUBLE IMAGE -->
