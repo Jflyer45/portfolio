@@ -77,46 +77,27 @@
             <!-- TEXT WITH IMAGE (Image on Left) -->
             <div class="text-with-image image-left">
                 <div class="image-container">
-                    <div class="placeholder"><img src="images/medvac/medvac awards.jpg" alt="Award Photo"></div>
+                    <div class="placeholder"><img src="..." alt="Photo"></div>
                     <div class="caption">...</div>
                 </div>
                 <div class="text-content">
-                    <p>The project has completed initial workshop prototype studies, with full patient deployment studies scheduled for Spring 2026 at UCSF and Stanford thereafter. We are</p>
+                    <p>The project has completed initial workshop prototype studies, with full patient deployment studies scheduled for Spring 2026 at UCSF and Stanford thereafter.</p>
                 </div>
             </div>
 
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">Active</span>
-                    <div class="stat-label">Medvac Course Usage</div>
+                    <span class="stat-number">...</span>
+                    <div class="stat-label">...</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">5+</span>
-                    <div class="stat-label">Medical course cohort playthroughs</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <div class="stat-label">Surveyed students recommended using wargame into the future</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">Approved</span>
-                    <div class="stat-label">P0 rating patent in process</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">3</span>
-                    <div class="stat-label">Active research papers</div>
-                </div>
+
             </div>
         </div>
         
         <!-- PARTICIPANT FEEDBACK -->
         <div class="quote-block">
-            "The computer simulated practical exercise reinforced the information taught throughout the course, both doctrine and techniques. Even the times that were overwhelmingly difficult reinforced the future of MEDEVAC operations."
-            <div class="quote-author">— Course Participant</div>
-        </div>
-        <div class="quote-block">
-            "Loved the wargame practical exercises. They got the creativity flowing…"
-            <div class="quote-author">— Course Participant</div>
+            "..."
+            <div class="quote-author">— Patient Workshop Participant</div>
         </div>
 
         <!-- DIVIDER FOR DEEPER CONTENT -->
@@ -126,55 +107,43 @@
         <div class="content-section">
             <h2 class="section-title">Technical Deep Dive</h2>
             <div class="text-content">
-                <p>I'm quite proud of the technical achievements and considerations made in this project. For those interested, I have some of my favorite highlights below and how they were implemented!</p>
-                
-                <h3>High Fidelity Terrain Modeling</h3>
+                <h3>Remote Therapy Call</h3>
                 <p>
-                    An important aspect of the simulation is accurate representation of terrain and road networks. Before students even play the wargame, they plan their evacuation based on a scenario brief. They must make considerations of where to place their medical platforms and treatment facilities based on road networks. They might ask themselves, "Will my ground vehicles that moves 60 mph be able to meet the one-hour evacuation standard for urgent patients with our proposed treatment site placement?" or "If the enemy blocks or destroys this road, will we be able to reroute?"</p>
-
-                <p>
-                    To meet this requirement, I used <a href="https://terraining.ateliernonta.com/">real life height data</a> that was imported and used in terrain tooling to provide accurate scaling and terrain features. The height of the terrain was exaggerated to better visualize elevation changes, as at the scale of hundreds of square kilometers, <a href="https://www.youtube.com/watch?v=C69xx2bM8IA">small elevation changes are almost impossible to see</a>!
-                </p>
-
-                <p>
-                    For road placement, I sampled latitude/longitude coordinates from OpenStreetMap and converted them to Unity world space using a flat Earth approximation. The conversion accounts for latitude-dependent scaling of longitude:
-                </p>
-
-                <pre><code>public Vector2 ConvertPositionToLatLong(Vector3 pos) {
-    float dx = (pos.x - refPoint.pos.x) / unitToKilometer;
-    float dz = (pos.z - refPoint.pos.z) / unitToKilometer;
-    
-    float latKm = 111.32f;
-    float lonKm = 111.32f * Mathf.Cos(refPoint.lat * Mathf.Deg2Rad);
-    
-    return new Vector2(
-        refPoint.lat + (dz / latKm),
-        refPoint.lon + (dx / lonKm)
-    );
-}</code></pre>
-
-                <p>
-                    Each sampled lat/long coordinate gets inserted into a spline node, and a custom mesh is generated along the spline to create the roads. This ensures in-game roads match real-world routes with accurate lengths and positioning.
+                    ...
                 </p>
                 
                 <!-- DOUBLE IMAGE -->
                 <div class="double-image">
                     <div class="image-item">
-                        <img src="images/medvac/medvac top view.png" alt="">
-                        <div class="caption">Google maps view of Hawaiian islands, converted into height map, turned into 3D terrain model.</div>
+                        <img src="..." alt="">
+                        <div class="caption">Therapist Webportal View</div>
                     </div>
                     <div class="image-item">
-                        <img src="images/medvac/medvac europe.png" alt="">
-                        <div class="caption">By sampling real road data, in-game roads highly resemble actual routes with accurate length.</div>
+                        <img src="..." alt="">
+                        <div class="caption">Patient Headset View.</div>
                     </div>
                 </div>
-                <h3>Technologies Used</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Unity 3D</span>
-                    <span class="tech-tag">C#</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Reinforcement Learning</span>
-                    <span class="tech-tag">Unity ML Agents</span>
+
+                <div class="single-image">
+                    <div class="placeholder">[Image Description]</div>
+                    <div class="caption">Video showing therapist placing down virtual circle and patient seeing it in their enviroment.</div>
+                </div>
+
+                <h3>Exercise Programs</h3>
+                <p>
+                    ... natural lang -> program -> uses body pose estimation and multimodal ai to evaluate performance ...
+                </p>
+                <div class="single-image">
+                    <div class="placeholder">[Image Description]</div>
+                    <div class="caption">Diagram showing how exercise programs are generated.</div>
+                </div>
+
+                <p>
+                    ... examples ...
+                </p>
+                <div class="single-image">
+                    <div class="placeholder">[Image Description]</div>
+                    <div class="caption">Video showcasing exercise program examples.</div>
                 </div>
             </div>
         </div>
