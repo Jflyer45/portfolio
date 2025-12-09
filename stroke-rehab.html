@@ -137,7 +137,7 @@
             <div class="text-content">
                 <h3>Remote Therapy Call</h3>
                 <p>
-                    The remote therapy call system leverages Agora's real-time video SDK to handle communication between therapist on the Webportal and patients using Quest 3 headset. The first person view from the headset provides a unique perspective for therapists, espectially ocupational therapists, to assest patient's movement while completing everyday tasks. However, since it's hard to fully understand the patient's movement from just a first person view, we also provide a 3D reconstruction WebGL companion app to show a simplified patient enviroment and body pose estimation. This also allows therapists to place virtual objects in the patient's enviroment for conducting exercises.
+                    The remote therapy call system leverages Agora's real-time video SDK to handle communication between therapist on the Webportal and patients using Quest 3 headset. We leveraged recently released <a href="https://developers.meta.com/horizon/blog/new-era-mixed-reality-passthrough-camera-api-machine-learning-computer-vision/"> Quest Passthrough Camera Support</a> to access front facing camera, and third-party tooling to be able to overlay virtual objects in the video stream sent to Agora. The first person view from the headset provides a unique perspective for therapists, espectially ocupational therapists, to assest patient's movement while completing everyday tasks. However, since it's hard to fully understand the patient's movement from just a first person view, we also provide a 3D reconstruction WebGL companion app to show a simplified patient enviroment and body pose estimation. The app utilizes Meta's MRUK toolkit to get object position, scale, and class info which is then synced via Photon Multiplayer. 
                 </p>
                 
                 <!-- DOUBLE IMAGE -->
@@ -151,6 +151,10 @@
                         <div class="caption">Patient Headset View.</div>
                     </div>
                 </div>
+
+                <p>
+                    The companion app also allows therapists to place virtual objects in the patient's enviroment when conducting exercises. One common use case is placing virtual annotation shapes on tables, shelves, walls, or floors to signal to the patient where to reach, grab, place, or step. The realitive positions of these virtual objects can be saved in exercise programs, tailored to the patient's physical ability and home enviroment.
+                </p>
 
                 <div class="single-image">
                     <div class="placeholder">[Image Description]</div>
@@ -179,6 +183,7 @@
                     <h3>Accessibility</h3>
                     <p>
                         ...
+                        QR code, placing UI on strong arm side, caption and aws speech to text, and arm reach calibaration.
                     </p>
                 </div>
                 <div class="image-container">
