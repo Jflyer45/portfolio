@@ -69,6 +69,13 @@
     border-radius: 8px;
 }
 
+/* Square video styling - use object-fit: cover to fill space */
+.carousel-slide.square-video video {
+    object-fit: cover;
+    object-position: center bottom;
+    height: 800px;
+}
+
 .carousel-slide .caption {
     position: absolute;
     bottom: 0;
