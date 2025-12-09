@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Evacuation Wargame - Jeremy Fischer</title>
+    <title>Mixed Reality Stroke Rehabilitation - Jeremy Fischer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="carousel.css">
@@ -13,40 +13,24 @@
         <a href="index.html" class="back-link">← Back to Portfolio</a>
         
         <div class="hero-section">
-            <h1 class="hero-title">Medical Evacuation Wargame</h1>
-            <div class="hero-subtitle">UC Berkeley | Stanford | US Army</div>
-            <div class="hero-date">Fall 2024 - Present</div>
+            <h1 class="hero-title">Mixed Reality Stroke Rehabilitation</h1>
+            <div class="hero-subtitle">UC Berkeley | UCSF | Stanford</div>
+            <div class="hero-date">March 2025 - Present</div>
             
             <!-- PROJECT CAROUSEL -->
             <div class="carousel-container" data-carousel="wargame" data-auto-advance="false" data-auto-advance-time="6000">
                 <div class="carousel-wrapper">
                     <div class="carousel-slides">
+                        <div class="carousel-slide">
+                            <div class="placeholder"><img src="images/mr example.jpg" alt=""></div>
+                            <div class="caption">.....</div>
+                        </div>
                         <div class="carousel-slide active">
                             <video controls muted autoplay loop>
                                 <source src="images/medvac/medvac valor gameplay.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <div class="caption">General gameplay showing a player move a Bell MV-75 helicopter to pick up and drop off patients.</div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="placeholder"><img src="images/medvac/medvac general game play.png" alt=""></div>
-                            <div class="caption">Players coordinating medical evacuation of patients in a variety of vehicles who each have unique capabilities and constraints.</div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="placeholder"><img src="images/medvac/medvac top view.png" alt=""></div>
-                            <div class="caption">Islands Kauai & Oahu - Our scenario maps are generated using real geographic data for accurate scale and terrain representation.</div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="placeholder"><img src="images/medvac/medvac ai threat rings.png" alt=""></div>
-                            <div class="caption">Custom trained adversarial AI system plays against human players by placing air or ground threat rings on the map, stimulating strategic decision-making.</div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="placeholder"><img src="images/medvac/medvac instructor inject.png" alt=""></div>
-                            <div class="caption">Medical instructor injecting artillery fire to challenge players and adapt planning in real-time.</div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="placeholder"><img src="images/medvac/medvac players playing.jpg" alt=""></div>
-                            <div class="caption">The medical evacuation wargame is actively used in the Medical Evacuation Doctrine Course!</div>
+                            <div class="caption">......</div>
                         </div>
                     </div>
                     
@@ -74,43 +58,30 @@
         <div class="content-section">
             <h2 class="section-title">Project Overview</h2>
             <div class="text-content">
-                <p>The Medical Evacuation Wargame Initiative started as my Berkeley M.Eng. capstone project in collaboration with UC Berkeley, Stanford University, and the US Army. The simulation is used in the Medical Evacuation Doctrine Course, where all students collaborate to develop an evacuation plan based on scenario, then 5+ students execute the plan using laptops to coordinate medical platforms including helicopters, ground vehicles, and ships to efficiently evacuate casualties to medical facilities over 4 hours of gameplay. Instructors monitor the scenario in real-time and can inject challenges like enemy artillery, adversarial AI, or mass casualty events.</p>
+                <p>The Berkeley mixed reality stroke rehabilitation project is under Professor Sanjit A. Seshia's research group and partners with UCSF and Stanford hospitals. The goal of the project is to empower therapists and patients to conduct therapy sessions remotely using MR headsets like the Meta Quest 3 and create tailored exercise programs that report patient progress to therapists. My role as a researcher in the project is to lead and project manage the frontend, backend, and Unity applications.</p>
                 
-                <p>Before this system, students in the Medical Evacuation Doctrine Course could only plan scenarios on paper and roleplay. Now the entire class can work together to create a strategy, then watch as their plan succeeds or fails in real-time as it's executed. The system logs all platforms and patient outcomes, providing detailed statistics at the end of each game that instructors use to give targeted feedback. Currently deployed at Fort Rucker, the wargame combines realistic platform capabilities, doctrinal evacuation policies, and dynamic challenges to create training scenarios that mirror actual operational complexity, preparing students for real-world situations.</p>
-
-                <p>As lead developer, I handled the technical implementation, system architecture, and coordination between developers and U.S Army stakeholders and sponsors. I managed the development timeline, integrated feedback from project stakeholders, and worked closely with peer collaborators to build out features. I am the current sole developer maintainer of the project.</p>
+                <p>As project lead, I managed a team of 3-5 developers, including both student researchers and professional developers, coordinating tasks and timelines to ensure milestones were met. I designed and implemented systems across backend (Go, AWS), frontend (React, Typescript), and Unity (C#) codebases, integrating Agora video calling, Clerk authentication, AWS App runner & databases, and multi-provider AI (Gemini, OpenAI, Bedrock). I also prototyped the novel rehabilitation system using multimodal AI to generate and monitor personalized therapy exercises.</p>
 
                 <h3>Key Features</h3>
                 <ul>
-                    <li>Diverse evacuation platforms (helicopters, ambulances, medical ships) with realistic capabilities and constraints.</li>
-                    <li>Adversarial AI trained with reinforcement learning that places ground obstacles and air defense zones to challenge players.</li>
-                    <li>Real-world policies like the one-hour evacuation standard for urgent patients to reinforced learned course objectives.</li>
-                    <li>Instructor controls for managing difficulty through casualty flow, supplemental medical platforms, and artillery strikes.</li>
-                    <li>Highly accurate map scaling, terrain modeling, road placement, time conversion, and vehicle speeds that respect real life constraints and student planning. If they calculate a route will take 15 minutes, the simulation accurately reflects that timing.</li>
+                    <li>Remote therapy sessions conducted via video call between therapists on the web portal and patients on MR headset, providing therapists with a first-person view, 3D environment visualization, and real-time pose reconstruction.</li>
+                    <li>Exercise programs created using natural language worksheets or recorded during therapy sessions, tailored to individual patient capabilities with automatic progress logging for therapist review.</li>
+                    <li>Multimodal AI system that evaluates exercise performance using both real and virtual objects, providing automated feedback and adjustments.</li>
+                    <li>End-to-end HIPAA compliant system ensuring patient data privacy and security throughout therapy sessions.</li>
                 </ul>
-
-                <h3>Future Work</h3>
-                <p>The project continues from its initial development through generous grants, enabling more advanced features enhancing student experience and future research opportunities at Stanford.</p>
-
-                <h3 class="section-title">Collaborators</h3>
-                <div class="text-content">
-                    <p><strong>Mahdi Al-Husseini, P.E.</strong> - Project Sponsor, Stanford Ph.D Candidate, U.S Army Medical Evacuation Instructor<br>
-                    <strong>Ram Krishnamoorthy</strong> - U.S Marine and Berkeley Graduate Student who created the wargame scenario and managed applied statistics.<br>
-                    <strong>Vishal Kumar</strong> - Berkeley Graduate Student who contributed to AI/ML systems development</p>
-                </div>
         </div>
 
         <div class="content-section">
-            <h2 class="section-title">Results & Impact</h2>
+            <h2 class="section-title">Results & Future Work</h2>
 
             <!-- TEXT WITH IMAGE (Image on Left) -->
             <div class="text-with-image image-left">
                 <div class="image-container">
                     <div class="placeholder"><img src="images/medvac/medvac awards.jpg" alt="Award Photo"></div>
-                    <div class="caption">Award Commencement</div>
+                    <div class="caption">...</div>
                 </div>
                 <div class="text-content">
-                    <p>The project was a smashing success, receiving high praise and recognition from both the Medical Evacuation Doctrine Course Staff and UC Berkeley faculty. I was awarded the Patriotic Public Service Lapel Pin for my past and ongoing contributions and received multiple grants to continue development. We are publishing multiple research papers based on the project, with a paper under Journal of Defense Modeling and Simulation under review.</p>
+                    <p>The project has completed initial workshop prototype studies, with full patient deployment studies scheduled for Spring 2026 at UCSF and Stanford thereafter. We are</p>
                 </div>
             </div>
 
