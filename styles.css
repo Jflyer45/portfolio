@@ -581,6 +581,15 @@ h2 {
     font-style: italic;
 }
 
+/* Fixed height double-image for matching sizes */
+.double-image-fixed img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    background-color: transparent;
+    border: none;
+}
+
 .text-with-image {
     display: grid;
     grid-template-columns: 1fr 400px;
