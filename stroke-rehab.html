@@ -137,7 +137,7 @@
             <div class="text-content">
                 <h3>Remote Therapy Call</h3>
                 <p>
-                    The remote therapy call system leverages Agora's real-time video SDK to handle communication between therapist on the Webportal and patients using Quest 3 headset. We leveraged recently released <a href="https://developers.meta.com/horizon/blog/new-era-mixed-reality-passthrough-camera-api-machine-learning-computer-vision/"> Quest Passthrough Camera Support</a> to access front facing camera, and third-party tooling to be able to overlay virtual objects in the video stream sent to Agora. The first person view from the headset provides a unique perspective for therapists, espectially ocupational therapists, to assest patient's movement while completing everyday tasks. However, since it's hard to fully understand the patient's movement from just a first person view, we also provide a 3D reconstruction WebGL companion app to show a simplified patient enviroment and body pose estimation. The app utilizes Meta's MRUK toolkit to get object position, scale, and class info which is then synced via Photon Multiplayer. 
+                    The remote therapy call system leverages Agora's real-time video SDK to handle communication between therapist on the Webportal and patients using Quest 3 headset. We leveraged recently released <a href="https://developers.meta.com/horizon/blog/new-era-mixed-reality-passthrough-camera-api-machine-learning-computer-vision/"> Quest Passthrough Camera Support</a> to access front facing camera, and third-party tooling to be able to overlay virtual objects in the video stream sent to Agora. The first person view from the headset provides a unique perspective for therapists, especially occupational therapists, to assess patient's movement while completing everyday tasks. However, since it's hard to fully understand the patient's movement from just a first person view, we also provide a 3D reconstruction WebGL companion app to show a simplified patient environment and body pose estimation. The app utilizes Meta's MRUK toolkit to get object position, scale, and class info which is then synced via Photon Multiplayer. 
                 </p>
                 
                 <!-- DOUBLE IMAGE -->
@@ -153,7 +153,7 @@
                 </div>
 
                 <p>
-                    The companion app also allows therapists to place virtual objects in the patient's enviroment when conducting exercises. One common use case is placing annotation shapes on tables, shelves, walls, or floors to signal to the patient where to reach, grab, place, or step. The realitive positions of these virtual objects can be saved in exercise programs, tailored to the patient's physical ability and home enviroment.
+                    The companion app also allows therapists to place virtual objects in the patient's environment when conducting exercises. One common use case is placing annotation shapes on tables, shelves, walls, or floors to signal to the patient where to reach, grab, place, or step. The relative positions of these virtual objects can be saved in exercise programs, tailored to the patient's physical ability and home environment.
                 </p>
 
                 <div class="single-image">
@@ -163,7 +163,7 @@
 
                 <h3>Exercise Programs</h3>
                 <p>
-                    Our system creates exercise programs with LLM assistance with natural language input from therapists. Therapists can either tweak a premade worksheet to fit a patient's needs or record exercises during therapy sessions. The input is then processed by LLMs (Claude, GPT-4, etc) to parse the natural language instructions and generate a exercise program in JSON format. Based on system prompts, the LLM chooses how each exercise step is checked for accuracy from function registary of poses (CheckIsStanding, CheckTouchingObject("Circle1"), etc) or can use image/video queries to vision models. The LLM can also call commands like setting glow hands on, spawn virtual objects, or play audio instructions during specific exercise steps.
+                    Our system creates exercise programs with LLM assistance with natural language input from therapists. Therapists can either tweak a premade worksheet to fit a patient's needs or record exercises during therapy sessions. The input is then processed by LLMs (Claude, GPT-4, etc) to parse the natural language instructions and generate an exercise program in JSON format. Based on system prompts, the LLM chooses how each exercise step is checked for accuracy from function registry of poses (CheckIsStanding, CheckTouchingObject("Circle1"), etc) or can use image/video queries to vision models. The LLM can also call commands like setting glow hands on, spawn virtual objects, or play audio instructions during specific exercise steps.
                 </p>
                 <div class="double-image double-image-fixed">
                     <div class="image-item">
