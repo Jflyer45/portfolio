@@ -28,11 +28,8 @@
                             </video>
                             <div class="caption">Exercises being performed in mixed reality</div>
                         </div>
-                        <div class="carousel-slide active">
-                            <video controls muted autoplay loop>
-                                <source src="images/stroke-rehab/TODO.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                        <div class="carousel-slide">
+                            <div class="placeholder"><img src="images/stroke-rehab/Shape Placement take 2.gif" alt=""></div>
                             <div class="caption">Remote therapy sessions give therapist a unique first person view, 3rd person virtual reconstruction, and virtual object catalog for conducting exercises.</div>
                         </div>
                         <div class="carousel-slide">
@@ -86,7 +83,7 @@
             <!-- TEXT WITH IMAGE (Image on Left) -->
             <div class="text-with-image image-left">
                 <div class="image-container">
-                    <div class="placeholder"><img src="..." alt="Photo"></div>
+                    <div class="placeholder"><img src="images/stroke-rehab/schools logos.png" alt="Photo"></div>
                     <div class="caption">...</div>
                 </div>
                 <div class="text-content">
@@ -96,10 +93,13 @@
 
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">...</span>
-                    <div class="stat-label">...</div>
+                    <span class="stat-number">3</span>
+                    <div class="stat-label">Active Research Papers, abstract submitted to Nature Medicine, AAN</div>
                 </div>
-
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <div class="stat-label">Workshops Conducted, with real therapists and patients</div>
+                </div>
             </div>
         </div>
         
@@ -157,38 +157,52 @@
                 </p>
 
                 <div class="single-image">
-                    <div class="placeholder">[Image Description]</div>
-                    <div class="caption">Video showing therapist placing down virtual circle and patient seeing it in their enviroment.</div>
+                    <img src="images/stroke-rehab/Shape Placement take 2.gif" alt="">
+                    <div class="caption">Video showing how a therapist could place down virtual circle and patient seeing it in their enviroment.</div>
                 </div>
 
                 <h3>Exercise Programs</h3>
                 <p>
-                    ... natural lang -> program -> uses body pose estimation and multimodal ai to evaluate performance ...
+                    Our system creates exercise programs with LLM assistance with natural language input from therapists. Therapists can either tweak a premade worksheet to fit a patient's needs or record exercises during therapy sessions. The input is then processed by LLMs (Claude, GPT-4, etc) to parse the natural language instructions and generate a exercise program in JSON format. Based on system prompts, the LLM chooses how each exercise step is checked for accuracy from function registary of poses (CheckIsStanding, CheckTouchingObject("Circle1"), etc) or can use image/video queries to vision models. The LLM can also call commands like setting glow hands on, spawn virtual objects, or play audio instructions during specific exercise steps.
                 </p>
-                <div class="single-image">
-                    <div class="placeholder">[Image Description]</div>
-                    <div class="caption">Diagram showing how exercise programs are generated.</div>
-                </div>
-
-                <p>
-                    ... examples ...
-                </p>
-                <div class="single-image">
-                    <div class="placeholder">[Image Description]</div>
-                    <div class="caption">Video showcasing exercise program examples.</div>
+                <div class="double-image double-image-fixed">
+                    <div class="image-item">
+                        <img src="images/stroke-rehab/object placement worksheet.png" alt="">
+                        <div class="caption">Natural language worksheet text describes exercise where the stroke patient's weaker arm is to place a real cup on virtual circles. Therapist can change the instructions as needed, like only having 3 targets, or using a pencil.</div>
+                    </div>
+                    <div class="image-item">
+                        <video autoplay muted loop style="height: 400px; object-fit: contain; display: block; margin: 0 auto;">
+                            <source src="images/stroke-rehab/object placement showcase.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="caption" style="text-align: center;">The resulting exercise is generated and is being played.</div>
+                    </div>
                 </div>
 
                 <div class="text-with-image">
                 <div class="text-content">
                     <h3>Accessibility</h3>
                     <p>
-                        ...
-                        QR code, placing UI on strong arm side, caption and aws speech to text, and arm reach calibaration.
+                        Stroke patients often have varying levels of physical and cognitive impairments, making accessibility a top priority in our system design. We implemented multiple features to ensure ease of use for all patients. The user interface on the MR headset is designed with large, easily selectable buttons that are oriented to the non-affected side. Audio instructions are provided for each exercise step, along with visual cues like glow hands to indicate the correct hand to use. As typing in the headset can be challenging, we implemented a QR code login system where patients can scan a QR code displayed on the web portal using the headset camera to securely log in without needing to type. Stroke patients can have varying range of motion with their affected limbs, so a weekly reach calibration is done which clamps exercise object positions to within reach and can be visually seen by the therapist in web portal.  
                     </p>
                 </div>
                 <div class="image-container">
                     <img src="images/stroke-rehab/QR Code Scanning.gif" alt="">
                     <div class="caption">Login Token Encoded in QR Code</div>
+                </div>
+            </div>
+
+            <div class="double-image double-image-fixed">
+                <div class="image-item">
+                    <video autoplay muted loop style="height: 400px; object-fit: contain; display: block; margin: 0 auto;">
+                        <source src="images/stroke-rehab/Arm Reach Demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="caption" style="text-align: center;">Patient performing weekly reach calibration in headset</div>
+                </div>
+                <div class="image-item">
+                    <img src="images/stroke-rehab/Arm Reach Webportal.png" alt="">
+                    <div class="caption">Therapist viewing patient's reach data on web portal</div>
                 </div>
             </div>
             </div>

@@ -519,9 +519,9 @@ h2 {
     margin: 30px 0;
 }
 
-.single-image img, .single-image .placeholder {
+.single-image img, .single-image video, .single-image .placeholder {
     width: 100%;
-    height: 350px;
+    height: auto;
     background-color: #f5f5f5;
     border: 2px solid #ddd;
     display: flex;
@@ -533,8 +533,9 @@ h2 {
     overflow: hidden;
 }
 
-.single-image img {
-    object-fit: cover;
+.single-image img, .single-image video {
+    object-fit: contain;
+    display: block;
 }
 
 .single-image .caption {
